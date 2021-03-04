@@ -5,3 +5,16 @@
 nav a {
   margin: 0 15px;
 }
+
+a {
+  text-decoration: none;
+  opacity: 0.7;
+}
+
+a:link, a:visited, a:hover, a:active {
+  color: black;
+}
+
+a:hover {
+  opacity: 1;
+}
