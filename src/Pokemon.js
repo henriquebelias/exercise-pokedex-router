@@ -5,6 +5,7 @@ import './pokemon.css';
 class Pokemon extends React.Component {
   render() {
     const {name, type, averageWeight, image, id} = this.props.pokemon;
+    const isFavorite = (localStorage[id] === 'true');
     return (
       <div className="pokemon">
         <div>
@@ -15,7 +16,10 @@ class Pokemon extends React.Component {
           </p>
           <Link to={`/pokemon/${id}/details`}>Details</Link>
         </div>
-        <img src={image} alt={`${name} sprite`} />
+        <div className="img-favorite">
+          <img src={image} alt={`${name} sprite`} />
+          {isFavorite && <span role="img" aria-label="favorite-star">&#127775;</span>}
+        </div>
       </div>
     );
   }
