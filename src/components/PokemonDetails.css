@@ -1,3 +1,11 @@
+.pokedex {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 10px 10px;
+  align-items: center;
+}
+
 .pokemon {
   display: flex;
   align-items: center;
@@ -11,4 +19,9 @@
 
 .img-favorite {
   display: flex;
+}
+
+.favorite-label{
+  display: block;
+  margin-bottom: 10px;
 }
