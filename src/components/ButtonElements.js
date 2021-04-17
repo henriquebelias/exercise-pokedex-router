@@ -9,5 +9,10 @@ export const GenericButton = styled.button`
   padding: 1em;
   text-align: center;
   text-transform: uppercase;
-  width: 100%;
+  width: ${({gridless}) => gridless ? "30%" : "100%"};
+  opacity: 0.8;
+
+  &:hover {
+    opacity: 1;
+  }
 `

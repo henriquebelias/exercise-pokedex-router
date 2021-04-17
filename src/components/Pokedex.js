@@ -13,9 +13,11 @@ function Pokedex({ pokemons: { pokemon } }) {
       <p>Pokémons</p>
       <PokemonsContainer>
         {pokemon.map(({ pokemon: { name, url } }) => (
-          <PokemonBox>
-            <p>{ name }</p>
-            <Link to="pokemon/details"><Button url={ url } onClick={fetchPokemon}>Detalhes</Button></Link>
+          <PokemonBox key={ name }>
+            <p>{name}</p>
+            <Link to="pokemon/details">
+              <Button url={ url } onClick={ fetchPokemon }>Detalhes</Button>
+            </Link>
           </PokemonBox>
         ))}
       </PokemonsContainer>

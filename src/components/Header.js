@@ -5,9 +5,9 @@ import { HeaderContainer } from './HeaderElements';
 function Header() {
   return (
     <HeaderContainer>
-      <header>
+      <div>
         <h1> Pokédex </h1>
-      </header>
+      </div>
       <nav>
         <Link to="/">Home</Link>
         <Link to="/about">About</Link>
