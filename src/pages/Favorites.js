@@ -1,9 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Favorites.css';
 
-class Favorites extends React.Component {
-  renderPokemonCard(pokemon) {
+function Favorites({ pokemons }) {
+  function renderPokemonCard(pokemon) {
     const { name, type, averageWeight, image, id } = pokemon;
     return (
       <div key={id}>
@@ -25,23 +24,20 @@ class Favorites extends React.Component {
     )
   }
 
-  render() {
-    const { pokemons } = this.props;
-    const favoritePokemonsIds = Object.keys(localStorage).map(id => parseInt(id, 10));
-    const favoritePokemonsArray = [];
-    favoritePokemonsIds.forEach(id => {
-      const pokemon = pokemons.find(pokemon => pokemon.id === id);
-      favoritePokemonsArray.push(pokemon);
-    })
+  const favoritePokemonsIds = Object.keys(localStorage).map(id => parseInt(id, 10));
+  const favoritePokemonsArray = [];
+  favoritePokemonsIds.forEach(id => {
+    const pokemon = pokemons.find(pokemon => pokemon.id === id);
+    favoritePokemonsArray.push(pokemon);
+  })
 
-    return (
-      <div>
-        <h3>Favorites</h3>
-        {favoritePokemonsArray.map(pokemon => (
-          localStorage[pokemon.id] === 'true' && this.renderPokemonCard(pokemon)))}
-      </div>
-    )
-  }
+  return (
+    <div>
+      <h3>Favorites</h3>
+      {favoritePokemonsArray.map(pokemon => (
+        localStorage[pokemon.id] === 'true' && renderPokemonCard(pokemon)))}
+    </div>
+  )
 }
 
 export default Favorites;
